@@ -139,17 +139,27 @@ terminalInput.addEventListener('keydown', async (event) => {
 
     terminalInput.value = '';
 
-    // Save it to PostgreSQL through PHP.
+    // Save the command through the Vercel API to PostgreSQL.
     try {
-        const response = await fetch('/api/terminal.php', {
+        const response = await fetch('/api/terminal', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ input: command })
         });
 
-        if (!response.ok) throw new Error('Server error');
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error || 'Could not save command');
+
+        const savedLine = document.createElement('div');
+        savedLine.className = 'output';
+        savedLine.textContent = 'saved to database';
+        terminalBody.appendChild(savedLine);
     } catch (error) {
         console.error('Could not save terminal input:', error);
+        const errorLine = document.createElement('div');
+        errorLine.className = 'output';
+        errorLine.textContent = 'database save failed';
+        terminalBody.appendChild(errorLine);
     }
 
     terminalInput.focus();
