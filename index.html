@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Divij Kenta </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Scanning Line -->
+<div id="scan-line"></div>
+
+<!-- Navigation -->
+<nav id="navbar">
+    <a href="#hero" class="nav-logo">DD://</a>
+    <ul class="nav-links">
+        <li><a href="#about">about</a></li>
+        <li><a href="#skills">skills</a></li>
+        <li><a href="#projects">projects</a></li>
+        <li><a href="#github">github</a></li>
+        <li><a href="#contact">contact</a></li>
+    </ul>
+    <div class="nav-right">
+        <button class="nav-btn" onclick="lightModeJoke()">☀<span class="light-tooltip">light mode? lol</span></button>
+        <button class="nav-btn" onclick="toggleEaster()" title="Press / to open">_&gt;</button>
+    </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+    <canvas id="matrix-canvas"></canvas>
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">darsh@portfolio:~</span>
+        </div>
+        <div class="terminal-body" id="hero-terminal"></div>
+        <div class="terminal-input-row">
+            <span class="prompt">$</span>
+            <input id="terminal-input" type="text" autocomplete="off" spellcheck="false" placeholder="type a command and press Enter..." aria-label="Terminal input">
+        </div>
+    </div>
+    <h1 class="hero-name" id="hero-name">Divij Kenta</h1>
+    <p class="hero-tagline" id="hero-tagline">Mai Hu Kenta; Lelo Mera Kenta</p>
+    <div class="scroll-indicator">[ SCROLL ]</div>
+</section>
+
+<div class="section-divider"><hr class="divider-line"></div>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="section">
+    <div class="section-header reveal">
+        <div class="section-command">$ cat about.txt</div>
+        <h2 class="section-title glitch">About</h2>
+    </div>
+
+    <!-- Profile photo with a disco-light overlay -->
+    <div class="photo-slot active" id="photo-slot">
+
+        <!-- The photo with the disco lights layered visibly over it -->
+        <div class="photo-frame">
+            <img src="https://i.ibb.co/QSP508L/dss.jpg" alt="Darsh Dhawan">
+            <div class="disco-light-show" id="disco-light-show" aria-hidden="true">
+                <div class="disco-color-wash"></div>
+                <div class="disco-beam disco-beam-one"></div>
+                <div class="disco-beam disco-beam-two"></div>
+                <div class="disco-beam disco-beam-three"></div>
+                <div class="disco-orb">
+                    <span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+            <div id="disco-sparkles-container" aria-hidden="true"></div>
+        </div>
+
+    </div>
+
+    <div class="about-terminal reveal" style="transition-delay:0.1s">
+        <div class="terminal-header">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">about.txt — readonly</span>
+        </div>
+        <div class="about-content"><span class="hl">Results-driven Computer Science graduate</span> with hands-on expertise in <span class="hl">cybersecurity</span>, <span class="hl">Linux administration</span>, and data science.
+
+Experienced in configuring and hardening network services (SSH, Apache, NFS), performing vulnerability assessments, and building home-lab environments for continuous security learning.
+
+Proficient in Python, Docker, and exploratory data analysis. I break things to understand how to fix them.</div>
+    </div>
+</section>
+
+<div class="section-divider"><hr class="divider-line"></div>
+
+<!-- Footer -->
+<footer>
+    © 2024 Darsh Dhawan<br>
+    Built with raw HTML, CSS &amp; JS. No frameworks. No dependencies.<br>
+    Just like my labs.
+</footer>
+    <script src="script.js"></script>
+</body>
+</html>
